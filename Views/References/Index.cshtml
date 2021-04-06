@@ -1,0 +1,65 @@
+﻿@model IEnumerable<mini_linkedIn.Models.Reference>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RefID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RefID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RefID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

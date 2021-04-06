@@ -1,0 +1,64 @@
+﻿@model mini_linkedIn.Models.Project
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Project</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProjectID" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TechnologyUsed" class="control-label"></label>
+                <input asp-for="TechnologyUsed" class="form-control" />
+                <span asp-validation-for="TechnologyUsed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LanguageUsed" class="control-label"></label>
+                <input asp-for="LanguageUsed" class="form-control" />
+                <span asp-validation-for="LanguageUsed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartYear" class="control-label"></label>
+                <input asp-for="StartYear" class="form-control" />
+                <span asp-validation-for="StartYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndYear" class="control-label"></label>
+                <input asp-for="EndYear" class="form-control" />
+                <span asp-validation-for="EndYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserID" class="control-label"></label>
+                <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID"></select>
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
